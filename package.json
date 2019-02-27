@@ -1,0 +1,19 @@
+{
+    "dependencies": {},
+    "description": "Driver for Infineon XMC4000 Ethernet",
+    "fullname": "lib.infineon.xmc4eth",
+    "git_pointer": "zerynth://zerynth-libs/infineon-xmc4eth",
+    "info": {
+        "chip_manufacturer": "infineon",
+        "chip_name": "XMC4000",
+        "name": "Ethernet Driver",
+        "type": "Connectivity"
+    },
+    "keywords": [
+        "ethernet"
+    ],
+    "repo": "official",
+    "title": "XMC4000 Ethernet",
+    "version": "r2.2.0",
+    "whatsnew": ""
+}

@@ -1,0 +1,16 @@
+# configuration for xmc4eth
+#
+#
+
+config:
+    # enable sockets
+    ZERYNTH_SOCKETS: true
+    # configure zerynth sockets to use LWIP from this module
+    ZERYNTH_EXTERNAL_LWIP: true
+options:
+    ZERYNTH_SSL:
+        help: >
+            If enabled, the support for TLS/SSL socket will be available in the driver
+
+
+

@@ -1,0 +1,8 @@
+{
+    "files":[
+		["Infineon","xmc4eth.py"]
+	],
+	"version":"1.0.0",
+	"title":"Infineon Ethernet Driver",
+	"copyright":"Zerynth Team"
+}
