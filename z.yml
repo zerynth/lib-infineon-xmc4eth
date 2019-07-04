@@ -1,0 +1,12 @@
+---
+description: Driver for Infineon XMC4000 Ethernet
+fullname: lib.infineon.xmc4eth
+info:
+    chip_manufacturer: infineon
+    chip_name: XMC4000
+    name: Ethernet Driver
+    type: Connectivity
+keywords:
+- ethernet
+title: XMC4000 Ethernet
+...
