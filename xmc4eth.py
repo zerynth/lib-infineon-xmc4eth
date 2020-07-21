@@ -57,8 +57,9 @@ This module supports SSL/TLS.
         "csrc/lwip/port/zerynth/netif/ethernetif.c",
         "csrc/lwip/port/zerynth/sys_arch.c",
         "csrc/ethernetif_init.c",
-        "#csrc/misc/zstdlib.c",
+        "#csrc/misc/*",
         "#csrc/zsockets/*",
+        "#csrc/hwcrypto/*",
 #-if ZERYNTH_SSL
         "#csrc/tls/mbedtls/library/*",
 #-endif
@@ -72,6 +73,8 @@ This module supports SSL/TLS.
         "-I.../csrc/lwip/port/zerynth/include",
         "-I.../csrc/lwip/port/zerynth/netif",
         "-I#csrc/zsockets",
+        "-I#csrc/hwcrypto",
+        "-I#csrc/misc",
 #-if ZERYNTH_SSL
         "-I#csrc/tls/mbedtls/include",
 #-endif
@@ -107,47 +110,62 @@ def link():
 def is_linked():
     pass
 
-@native_c("xmc4eth_resolve", [])
+@native_c("py_net_resolve",[])
 def gethostbyname(hostname):
     pass
 
-@native_c("xmc4eth_socket", [])
+@native_c("py_net_socket",[])
 def socket(family,type,proto):
     pass
 
-@native_c("xmc4eth_setsockopt", [])
+@native_c("py_net_setsockopt",[])
 def setsockopt(sock,level,optname,value):
     pass
 
-@native_c("xmc4eth_close", [])
+@native_c("py_net_close",[])
 def close(sock):
     pass
 
-@native_c("xmc4eth_connect", [])
+@native_c("py_net_connect",["csrc/*"])
 def connect(sock,addr):
     pass
 
-@native_c("xmc4eth_select",[])
+@native_c("py_net_select",[])
 def select(rlist,wist,xlist,timeout):
     pass
 
-@native_c("xmc4eth_send", [])
+@native_c("py_net_send",[])
 def send(sock,buf,flags=0):
     pass
 
-@native_c("xmc4eth_send_all", [])
+@native_c("py_net_send_all",[])
 def sendall(sock,buf,flags=0):
     pass
 
-@native_c("xmc4eth_recv_into", [])
+@native_c("py_net_recv_into",[])
 def recv_into(sock,buf,bufsize,flags=0,ofs=0):
     pass
 
-#-if ZERYNTH_SSL
-@native_c("xmc4eth_secure_socket", [], [])
+@native_c("py_net_recvfrom_into",[])
+def recvfrom_into(sock,buf,bufsize,flags=0):
+    pass
+
+@native_c("py_net_sendto",[])
+def sendto(sock,buf,addr,flags=0):
+    pass
+
+@native_c("py_net_bind",[])
+def bind(sock,addr):
+    pass
+
+@native_c("py_net_listen",[])
+def listen(sock,maxlog=2):
+    pass
+
+@native_c("py_net_accept",[])
+def accept(sock):
+    pass
+
+@native_c("py_secure_socket", [], [])
 def secure_socket(family, type, proto, ctx):
     pass
-#-else
-def secure_socket(family, type, proto, ctx):
-    raise UnsupportedError
-#-endif
